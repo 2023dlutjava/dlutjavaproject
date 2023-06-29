@@ -1,4 +1,2 @@
 # javaproject
-javaproject for dut
-465123
-123
+javaproject for dult
