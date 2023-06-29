@@ -1,2 +1,2 @@
 # javaproject
-javaproject for dult
+javaproject for dlut
