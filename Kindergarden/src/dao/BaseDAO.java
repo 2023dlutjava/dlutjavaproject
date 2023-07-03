@@ -29,6 +29,7 @@ public class BaseDAO {
 	public static void init() {
 		Properties params=new Properties();
 		String config="src/test.properties";
+		//property place
 		try {
 			InputStream is=new FileInputStream(config);
 			try {
@@ -38,6 +39,7 @@ public class BaseDAO {
 				usernam=params.getProperty("username");
 				passwor=params.getProperty("password");
 				System.out.println("数据库配置加载成功！");
+				//load property
 			}catch(IOException e) {
 				e.printStackTrace();
 			}
@@ -61,6 +63,7 @@ public class BaseDAO {
 		}
 		try {
 			conn=DriverManager.getConnection(urll, usernam, passwor);
+			//get connection
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -78,6 +81,7 @@ public class BaseDAO {
 		if(rs!=null) {
 			try {
 				rs.close();
+				//close result set
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -85,6 +89,7 @@ public class BaseDAO {
 		if(pstmt!=null) {
 			try {
 				pstmt.close();
+				//close preparedstatement
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -92,6 +97,7 @@ public class BaseDAO {
 		if(conn!=null) {
 			try {
 				conn.close();
+				//close connection
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -99,12 +105,12 @@ public class BaseDAO {
 	}
 	/**
 	 * @author 王家豪
-	 * 执行选择学生的SQL语句
+	 * 执行增删改的SQL语句
 	 */
-	public void makSele() {
+	public int excecuteSQL(String preSQL,Object[] param) {
 		Connection conn=null;
 		PreparedStatement pstmt=null; 
-		ResultSet rs=null;
+		int num=0;
 		try {
 			conn=connection();
 		}catch(ClassNotFoundException e) {
@@ -113,22 +119,19 @@ public class BaseDAO {
 			e.printStackTrace();
 		}
 		try {
-			conn=DriverManager.getConnection(urll, usernam, passwor);
 			System.out.println("数据库连接成功！");
-			pstmt=conn.prepareStatement("SELECT * from myschool.student ");
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				int a=rs.getInt("id");
-				String b=rs.getString("name");
-				String c=rs.getString("xi");
-				int d=rs.getInt("restid");
-				System.out.println("学号："+a+" 姓名："+b+" 院系："+c+" 宿舍号："+d);
+			pstmt=conn.prepareStatement(preSQL);
+			if (param!=null) {
+				for (int i=0;i<param.length;++i){
+					pstmt.setObject(i+1,param[i]);
+				}
 			}
-			
+			//load ? in pstmt
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			this.closeAll(conn,pstmt,rs);
+			this.closeAll(conn,pstmt,null);
 		}
+		return num;
 	}
 }

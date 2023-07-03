@@ -15,7 +15,7 @@ public class Main {
 		 * todo 做界面
 		 */
 		BaseDAO a=new BaseDAO();
-		a.makSele();
+		//a.makSele();
 	}
 
 }
