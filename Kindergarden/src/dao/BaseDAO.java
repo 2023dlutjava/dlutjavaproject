@@ -9,7 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
-
+/**
+ * 数据库操作基类
+ * @author 王家豪
+ */
 public class BaseDAO {
 	public static String drive;
 	public static String urll;
@@ -126,7 +129,7 @@ public class BaseDAO {
 					pstmt.setObject(i+1,param[i]);
 				}
 			}
-			//load ? in pstmt
+			//load all “?” in pstmt
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

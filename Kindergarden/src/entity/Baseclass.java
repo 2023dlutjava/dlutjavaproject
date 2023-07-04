@@ -6,6 +6,10 @@ package entity;
 public abstract class Baseclass {
 	private int id;//class id
 	private String foodtext;//the file's name on the food of the class
+	/**
+	 * 根据这个文件的名字到对应的文件夹下寻找储存在txt中的食谱信息
+	 * @author 王家豪
+	 */
 	private int cost;//cost of the class
 	
 	

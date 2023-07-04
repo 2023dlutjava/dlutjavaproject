@@ -11,6 +11,6 @@ public class Littleclass extends Baseclass {
 	}
 	public Littleclass(int id) {
 		super(id);
-		setCost(3000);
+		setCost(2000);
 	}
 }

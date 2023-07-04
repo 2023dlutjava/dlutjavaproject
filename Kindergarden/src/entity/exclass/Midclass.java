@@ -11,6 +11,6 @@ public class Midclass extends Baseclass {
 	}
 	public Midclass(int id) {
 		super(id);
-		setCost(3000);
+		setCost(2500);
 	}
 }
