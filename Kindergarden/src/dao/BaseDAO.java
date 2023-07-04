@@ -110,7 +110,7 @@ public class BaseDAO {
 	 * @author 王家豪
 	 * 执行增删改的SQL语句
 	 */
-	public int excecuteSQL(String preSQL,Object[] param) {
+	public int executeSQL(String preSQL,Object[] param) {
 		Connection conn=null;
 		PreparedStatement pstmt=null; 
 		int num=0;

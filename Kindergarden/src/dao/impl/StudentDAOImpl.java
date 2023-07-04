@@ -42,4 +42,8 @@ public class StudentDAOImpl extends BaseDAO implements StudentDAO {
 		}
 		return allStu;
 	}
+	public int updateStu(String sql, String[] param) {
+		int count = super.executeSQL(sql, param);
+		return count;
+	}
 }
