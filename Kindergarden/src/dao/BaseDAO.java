@@ -41,7 +41,6 @@ public class BaseDAO {
 				urll=params.getProperty("url");
 				usernam=params.getProperty("username");
 				passwor=params.getProperty("password");
-				System.out.println("数据库配置加载成功！");
 				//load property
 			}catch(IOException e) {
 				e.printStackTrace();
@@ -49,6 +48,7 @@ public class BaseDAO {
 			
 		}catch(Exception ee) {
 			System.out.println("没读进来！");
+			ee.printStackTrace();
 		}
 	}
 	/**获得连接

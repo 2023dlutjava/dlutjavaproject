@@ -5,7 +5,7 @@ import entity.Student;
 
 public interface StudentDAO {
 	/**
-	 * 根据SQL寻找所有学生
+	 * 寻找所有学生
 	 * @author 王家豪
 	 * @return
 	 */
@@ -18,4 +18,9 @@ public interface StudentDAO {
 	 * @return
 	 */
 	public int updateStu(String sql,String[] param);
+	/**
+	 * @author 王家豪
+	 * 按条件查找学生
+	 */
+	public List<Student> selectStudent(String sql,String[] param);
 }
