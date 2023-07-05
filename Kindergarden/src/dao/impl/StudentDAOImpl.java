@@ -49,7 +49,7 @@ public class StudentDAOImpl extends BaseDAO implements StudentDAO {
 	 * 更新接口实现
 	 * @author 王家豪
 	 */
-	public int updateStu(String sql, String[] param) {
+	public int updateStu(String sql, Object[] param) {
 		int count = super.executeSQL(sql, param);
 		return count;//返回是否更新成功
 	}
@@ -57,7 +57,7 @@ public class StudentDAOImpl extends BaseDAO implements StudentDAO {
 	 * 按条件查找接口实现
 	 * @author 王家豪
 	 */
-	public List<Student> selectStudent(String sql,String[] param){
+	public List<Student> selectStudent(String sql,Object[] param){
 		List<Student> ListStu=new ArrayList<Student>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -68,7 +68,7 @@ public class StudentDAOImpl extends BaseDAO implements StudentDAO {
 			pstmt = conn.prepareStatement(sql); // 得到PreparedStatement对象
 			if(param!=null) {
 				for(int i=0;i<param.length;i++) {
-					pstmt.setString(i+1,param[i]);// 为预编译sql设置参数
+					pstmt.setObject(i+1,param[i]);// 为预编译sql设置参数
 				}
 			}
 			rs = pstmt.executeQuery(); // 执行SQL语句

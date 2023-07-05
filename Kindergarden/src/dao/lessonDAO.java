@@ -19,10 +19,10 @@ public interface lessonDAO {
 	 * @param param
 	 * @return
 	 */
-	public int updateles(String sql, String[] param);
+	public int updateles(String sql, Object[] param);
 	/**
 	 * @author 王家豪
 	 * 按条件查找课程信息
 	 */
-	public List<lesson> selectlesson(String sql,String[] param);
+	public List<lesson> selectlesson(String sql,Object[] param);
 }

@@ -18,10 +18,10 @@ public interface BaseclassDAO {
 	 * @param param
 	 * @return
 	 */
-	public int updatecla(String sql, String[] param);
+	public int updatecla(String sql, Object[] param);
 	/**
 	 * 按条件查找班级
 	 * @author 王家豪
 	 */
-	public List<Baseclass> selectclass(String sql, String[] param);
+	public List<Baseclass> selectclass(String sql, Object[] param);
 }

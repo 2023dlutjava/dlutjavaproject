@@ -52,7 +52,7 @@ public class BaseclassDAOImpl extends BaseDAO implements BaseclassDAO {
 	 * 更新接口实现
 	 * @author 王家豪
 	 */
-	public int updatecla(String sql, String[] param) {
+	public int updatecla(String sql, Object[] param) {
 		int count = super.executeSQL(sql, param);
 		return count;//返回是否成功
 	}
@@ -60,7 +60,7 @@ public class BaseclassDAOImpl extends BaseDAO implements BaseclassDAO {
 	 * 按条件查找实现
 	 * @author 王家豪
 	 */
-	public List<Baseclass> selectclass(String sql, String[] param){
+	public List<Baseclass> selectclass(String sql, Object[] param){
 		List<Baseclass> ListCla=new ArrayList<Baseclass>();//要返回的队列
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -71,7 +71,7 @@ public class BaseclassDAOImpl extends BaseDAO implements BaseclassDAO {
 			pstmt = conn.prepareStatement(sql); // 得到PreparedStatement对象
 			if (param != null) {
 				for (int i=0;i<param.length;i++){
-					pstmt.setString(i+1,param[i]); // 为预编译sql设置参数
+					pstmt.setObject(i+1,param[i]); // 为预编译sql设置参数
 				}
 			}
 			rs = pstmt.executeQuery(); // 执行SQL语句

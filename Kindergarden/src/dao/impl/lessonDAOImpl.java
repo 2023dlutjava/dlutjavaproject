@@ -47,7 +47,7 @@ public class lessonDAOImpl extends BaseDAO implements lessonDAO {
 	 * 更新接口实现
 	 * @author 王家豪
 	 */
-	public int updateles(String sql, String[] param) {
+	public int updateles(String sql, Object[] param) {
 		int count = super.executeSQL(sql, param);
 		return count;//返回是否更新成功
 	}
@@ -55,7 +55,7 @@ public class lessonDAOImpl extends BaseDAO implements lessonDAO {
 	 * 按条件查找接口实现
 	 * @author 王家豪
 	 */
-	public List<lesson> selectlesson(String sql,String[] param){
+	public List<lesson> selectlesson(String sql,Object[] param){
 		List<lesson> Listles=new ArrayList<lesson>();//要返回的队列
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -66,7 +66,7 @@ public class lessonDAOImpl extends BaseDAO implements lessonDAO {
 			pstmt = conn.prepareStatement(sql); // 得到PreparedStatement对象
 			if(param!=null) {
 				for (int i=0;i<param.length;i++){
-					pstmt.setString(i+1,param[i]); // 为预编译sql设置参数
+					pstmt.setObject(i+1, param[i]);// 为预编译sql设置参数
 				}
 			}
 			rs = pstmt.executeQuery(); // 执行SQL语句

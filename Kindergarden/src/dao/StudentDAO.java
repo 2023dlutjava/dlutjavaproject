@@ -17,10 +17,10 @@ public interface StudentDAO {
 	 * @param param
 	 * @return
 	 */
-	public int updateStu(String sql,String[] param);
+	public int updateStu(String sql,Object[] param);
 	/**
 	 * @author 王家豪
 	 * 按条件查找学生
 	 */
-	public List<Student> selectStudent(String sql,String[] param);
+	public List<Student> selectStudent(String sql,Object[] param);
 }
