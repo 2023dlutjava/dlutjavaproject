@@ -57,7 +57,6 @@ public class modeClass {
 				break;
 			}
 		}
-		input.close();
 	}
 	private static void prinmodeClass(){
 		System.out.println("1：查看所有班级信息");

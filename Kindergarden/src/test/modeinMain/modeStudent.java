@@ -13,11 +13,11 @@ public class modeStudent {
 		Scanner input=new Scanner(System.in);
 		boolean mode=true;
 		while(mode) {
-			System.out.print("（位于班级管理界面）请根据需要进行的操作输入序号，再次查看界面输入9，返回主界面请输入0：");
+			System.out.print("（位于学生管理界面）请根据需要进行的操作输入序号，再次查看界面输入9，返回主界面请输入0：");
 			int num=input.nextInt();
 			switch(num) {
 			case 0:
-				System.out.println("==========退出班级管理==========");
+				System.out.println("==========退出学生管理==========");
 				mode=false;
 				break;
 			case 1:
@@ -49,7 +49,6 @@ public class modeStudent {
 				break;
 			}
 		}
-		input.close();
 	}
 	private static void prinmodeStudent(){
 		System.out.println("1：查看所有学生信息");
