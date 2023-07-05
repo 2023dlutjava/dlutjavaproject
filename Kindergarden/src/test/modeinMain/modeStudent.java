@@ -1,12 +1,18 @@
 package test.modeinMain;
 
 import java.util.Scanner;
-
+import service.impl.*;
+import service.ViewStudent;
+import service.ChangeStudent;
+import service.UpdateStudent;
+import service.ViaStuToLesson;
 /**
- * @author 王家豪
+ * @author 王家豪 严强强
  * 学生管理子系统实现
  */
 public class modeStudent {
+	
+	
 	public static void inmodeStudent(){
 		prinmodeStudent();
 		System.out.println("==========学生管理==========");
@@ -21,24 +27,44 @@ public class modeStudent {
 				mode=false;
 				break;
 			case 1:
-				System.out.println("1：查看所有班级信息");
+				ViewStudent viewStudent=new StudentServiceImpl();
+				System.out.println("1：查看学生信息");
 				System.out.println("=================================");
+				System.out.println("请输入要查看的学生ID：");
+				int id11=input.nextInt();
+				viewStudent.view(id11);	
 				break;
 			case 2:
-				System.out.println("2：查看班级食谱");
+				ChangeStudent changeStudent=new StudentServiceImpl();
+				System.out.println("2：更改学生学籍信息");
 				System.out.println("=================================");
+				System.out.println("请输入要更改的学生ID：");
+				int id22=input.nextInt();
+				 changeStudent.change(id22);
 				break;
 			case 3:
-				System.out.println("3：查看班级学生");
+				ViaStuToLesson viaStuToLesson =new  StudentServiceImpl();
+				System.out.println("3：查看学生所有课程");
 				System.out.println("=================================");
+				System.out.println("请输入要查看的学生ID：");
+				int id33=input.nextInt();
+				viaStuToLesson.viastulesson(id33);
 				break;
 			case 4:
-				System.out.println("4：查看班级所有课程");
+				UpdateStudent updateStudent1=new  StudentServiceImpl();
+				System.out.println("4：学生增添");
 				System.out.println("=================================");
+				System.out.println("请输入要增加的学生ID：");
+				int id44=input.nextInt();
+				updateStudent1.update(id44, 2);
 				break;
 			case 5:
-				System.out.println("5：增添班级");
+				UpdateStudent updateStudent2=new  StudentServiceImpl();
+				System.out.println("5：学生删除");
 				System.out.println("=================================");
+				System.out.println("请输入要删除的学生ID：");
+				int id55=input.nextInt();
+				updateStudent2.update(id55, 1);
 				break;
 			case 9:
 				prinmodeStudent();
@@ -51,10 +77,10 @@ public class modeStudent {
 		}
 	}
 	private static void prinmodeStudent(){
-		System.out.println("1：查看所有学生信息");
-		System.out.println("2：查看学生所学课程");
-		System.out.println("3：学生增添");
-		System.out.println("4：学生删除");
-		System.out.println("5：更改学生信息");
+		System.out.println("1：查看学生信息");
+		System.out.println("2：更改学生学籍信息");
+		System.out.println("3：查看学生所有课程");
+		System.out.println("4：学生增添");
+		System.out.println("5:学生删除");
 	}
 }
