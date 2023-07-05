@@ -1,11 +1,13 @@
 package test.modeinMain;
 
+import java.util.List;
 import java.util.Scanner;
 import service.impl.*;
 import service.ViewStudent;
 import service.ChangeStudent;
 import service.UpdateStudent;
 import service.ViaStuToLesson;
+import entity.lesson;
 /**
  * @author 王家豪 严强强
  * 学生管理子系统实现
@@ -16,7 +18,7 @@ public class modeStudent {
 	public static void inmodeStudent(){
 		prinmodeStudent();
 		System.out.println("==========学生管理==========");
-		Scanner input=new Scanner(System.in);
+		Scanner input=new Scanner(System.in,"gbk");
 		boolean mode=true;
 		while(mode) {
 			System.out.print("（位于学生管理界面）请根据需要进行的操作输入序号，再次查看界面输入9，返回主界面请输入0：");
@@ -48,7 +50,15 @@ public class modeStudent {
 				System.out.println("=================================");
 				System.out.println("请输入要查看的学生ID：");
 				int id33=input.nextInt();
-				viaStuToLesson.viastulesson(id33);
+				List<lesson> listles=viaStuToLesson.viastulesson(id33);
+				lessonServiceImpl lesser=new lessonServiceImpl();
+				if(listles.size()==0) {
+					System.out.println("该学生未选课！");
+				}
+				else {
+					System.out.println("该学生所选课程为:");
+					lesser.prinlesList(listles);
+				}
 				break;
 			case 4:
 				UpdateStudent updateStudent1=new  StudentServiceImpl();
@@ -81,6 +91,6 @@ public class modeStudent {
 		System.out.println("2：更改学生学籍信息");
 		System.out.println("3：查看学生所有课程");
 		System.out.println("4：学生增添");
-		System.out.println("5:学生删除");
+		System.out.println("5：学生删除");
 	}
 }

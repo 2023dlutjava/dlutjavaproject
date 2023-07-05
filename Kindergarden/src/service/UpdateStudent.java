@@ -1,7 +1,7 @@
 package service;
-import entity.Baseclass;
-import entity.lesson;
-import entity.Student;
+/**
+ * @author 严强强
+ */
 
 public interface UpdateStudent {
 /*

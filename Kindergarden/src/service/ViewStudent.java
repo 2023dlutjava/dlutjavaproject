@@ -1,7 +1,12 @@
 package service;
-import entity.Baseclass;
-import entity.lesson;
+
+import java.util.List;
+
 import entity.Student;
+
+/**
+ * @author 严强强
+ */
 
 public interface ViewStudent {
 	/*
@@ -9,4 +14,9 @@ public interface ViewStudent {
 	 * 
 	 */
 	public void view(int id);
+	/**
+	 * @author 王家豪
+	 * 实现打印一个学生表
+	 */
+	public void prinstuList(List<Student> lis);
 }

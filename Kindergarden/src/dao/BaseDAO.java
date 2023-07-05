@@ -122,7 +122,6 @@ public class BaseDAO {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("数据库连接成功！");
 			pstmt=conn.prepareStatement(preSQL);
 			if (param!=null) {
 				for (int i=0;i<param.length;++i){
@@ -130,6 +129,7 @@ public class BaseDAO {
 				}
 			}
 			//load all “?” in pstmt
+			num=pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

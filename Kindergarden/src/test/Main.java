@@ -65,7 +65,7 @@ public class Main {
 	 */
 	private static void Choose() {
 		prinMain();
-		Scanner input=new Scanner(System.in);
+		Scanner input=new Scanner(System.in,"gbk");
 		boolean mode=true;
 		while(mode) {
 			System.out.print("（位于主界面）请根据需要进行的操作输入序号，再次查看界面输入9，退出请输入0：");

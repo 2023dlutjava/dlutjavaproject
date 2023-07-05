@@ -10,7 +10,7 @@ public class modeClass {
 	public static void inmodeClass(){
 		prinmodeClass();
 		System.out.println("==========班级管理==========");
-		Scanner input=new Scanner(System.in);
+		Scanner input=new Scanner(System.in,"gbk");
 		boolean mode=true;
 		while(mode) {
 			System.out.print("（位于班级管理界面）请根据需要进行的操作输入序号，再次查看界面输入9，返回主界面请输入0：");
